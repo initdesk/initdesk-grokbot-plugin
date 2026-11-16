@@ -14,7 +14,7 @@ See [Cursor plugin installation and local testing](https://cursor.com/docs/plugi
 
 ### Grok Build
 
-Clone this repository, then start Grok Build with `--plugin-dir /absolute/path/to/initdesk-plugin`. Open `/plugins` or `/mcps`, enable initdesk, and complete OAuth when prompted. For persistent local discovery, Grok Build also reads `~/.grok/plugins/`.
+Clone this repository, review its contents, then install it with `grok plugin install /absolute/path/to/initdesk-plugin --trust`. The `--trust` flag explicitly trusts the reviewed local package. Start `grok`, open `/plugins` or `/mcps`, enable initdesk, and complete OAuth when prompted. These commands were checked with Grok Build 1.0.77; this version does not accept `--plugin-dir`.
 
 See [Grok Build plugins](https://docs.x.ai/build/features/skills-plugins-marketplaces).
 
