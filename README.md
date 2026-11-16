@@ -2,8 +2,6 @@
 
 Connect Cursor and Grok Build to initdesk tickets, customers, companies, and help-center content through the remote initdesk MCP server. Shared skills help select an organization, triage tickets and replies, find customers, and maintain help-center articles.
 
-This is the initial plugin package. Marketplace approval and end-to-end client compatibility must be verified before a marketplace release is announced. Grok Bot uses the Cursor Marketplace; its OAuth connection and listing visibility need separate verification.
-
 ## Install locally
 
 ### Cursor
@@ -20,7 +18,7 @@ See [Grok Build plugins](https://docs.x.ai/build/features/skills-plugins-marketp
 
 ### Grok Bot
 
-For an initial connection test, add a custom MCP connector using `https://mcp.initdesk.com/mcp`, then complete OAuth. Exact controls and OAuth callback compatibility must be checked in the current Grok Bot client. Marketplace installation is pending review.
+In Grok Bot, open **Connect apps → Add a custom connector**. Set the name to `initdesk`, the type to **Remote HTTPS**, and the server URL to `https://mcp.initdesk.com/mcp`. Leave HTTP headers and Client ID empty, then complete OAuth. If initdesk is already connected, use the existing connector.
 
 ## Connection and credentials
 
@@ -51,69 +49,71 @@ The connected server is the authority for available tools, parameters, permissio
 
 Replies can send messages to customers, article publication changes public content, and administrative updates change organization settings. Requesting a draft does not authorize sending or publishing.
 
-| Tool | Effect |
+The table flags DELETE and full-update operations; an em dash means no special caution is recorded here, not that a tool has no side effects. Consult the live schema for each operation. Full updates can reset omitted fields: fetch the current record and send the intended complete values, or use a `partial_update_*` tool when available. `update_article` preserves omitted article content. For business hours, omitted weekdays are closed and a null or empty PUT body removes the schedule.
+
+| Tool | Write caution |
 | --- | --- |
-| `attach_company_members` | Write |
-| `create_article` | Write |
-| `create_business_hours_exception` | Write |
-| `create_collection` | Write |
-| `create_company` | Write |
-| `create_customer` | Write |
-| `create_pending_attachment` | Write |
-| `create_ticket` | Write |
-| `create_ticket_attachment` | Write |
-| `create_ticket_message` | Write |
+| `attach_company_members` | — |
+| `create_article` | — |
+| `create_business_hours_exception` | — |
+| `create_collection` | — |
+| `create_company` | — |
+| `create_customer` | — |
+| `create_pending_attachment` | — |
+| `create_ticket` | — |
+| `create_ticket_attachment` | — |
+| `create_ticket_message` | — |
 | `delete_article` | **Destructive — DELETE** |
 | `delete_business_hours` | **Destructive — DELETE** |
 | `delete_business_hours_exception` | **Destructive — DELETE** |
 | `delete_collection` | **Destructive — DELETE** |
 | `delete_company` | **Destructive — DELETE** |
-| `list_articles` | Read |
-| `list_business_hours_exceptions` | Read |
-| `list_collection_tree` | Read |
-| `list_collections` | Read |
-| `list_companies` | Read |
-| `list_custom_preset_filters` | Read |
-| `list_customers` | Read |
-| `list_inboxes` | Read |
-| `list_organizations` | Read |
-| `list_tags` | Read |
-| `list_ticket_messages` | Read |
-| `list_ticket_statuses` | Read |
-| `list_tickets` | Read |
-| `partial_update_article` | Write |
-| `partial_update_business_hours_exception` | Write |
-| `partial_update_collection` | Write |
-| `partial_update_company` | Write |
-| `partial_update_customer` | Write |
-| `partial_update_portal_settings` | Write |
-| `ping` | Read |
-| `retrieve_article` | Read |
-| `retrieve_business_hours` | Read |
-| `retrieve_business_hours_exception` | Read |
-| `retrieve_collection` | Read |
-| `retrieve_company` | Read |
-| `retrieve_custom_preset_filter` | Read |
-| `retrieve_customer` | Read |
-| `retrieve_inbox` | Read |
-| `retrieve_organization` | Read |
-| `retrieve_portal_favicon_url` | Read |
-| `retrieve_portal_logo_url` | Read |
-| `retrieve_portal_settings` | Read |
-| `retrieve_tag` | Read |
-| `retrieve_ticket` | Read |
-| `retrieve_ticket_attachment` | Read |
-| `retrieve_ticket_message_raw_content` | Read |
-| `search_articles` | Read |
-| `search_tickets` | Read |
-| `unassign_ticket` | Write |
-| `update_article` | Write |
-| `update_business_hours` | Write |
-| `update_business_hours_exception` | Write |
-| `update_collection` | Write |
-| `update_company` | Write |
-| `update_customer` | Write |
-| `update_portal_settings` | Write |
+| `list_articles` | — |
+| `list_business_hours_exceptions` | — |
+| `list_collection_tree` | — |
+| `list_collections` | — |
+| `list_companies` | — |
+| `list_custom_preset_filters` | — |
+| `list_customers` | — |
+| `list_inboxes` | — |
+| `list_organizations` | — |
+| `list_tags` | — |
+| `list_ticket_messages` | — |
+| `list_ticket_statuses` | — |
+| `list_tickets` | — |
+| `partial_update_article` | — |
+| `partial_update_business_hours_exception` | — |
+| `partial_update_collection` | — |
+| `partial_update_company` | — |
+| `partial_update_customer` | — |
+| `partial_update_portal_settings` | — |
+| `ping` | — |
+| `retrieve_article` | — |
+| `retrieve_business_hours` | — |
+| `retrieve_business_hours_exception` | — |
+| `retrieve_collection` | — |
+| `retrieve_company` | — |
+| `retrieve_custom_preset_filter` | — |
+| `retrieve_customer` | — |
+| `retrieve_inbox` | — |
+| `retrieve_organization` | — |
+| `retrieve_portal_favicon_url` | — |
+| `retrieve_portal_logo_url` | — |
+| `retrieve_portal_settings` | — |
+| `retrieve_tag` | — |
+| `retrieve_ticket` | — |
+| `retrieve_ticket_attachment` | — |
+| `retrieve_ticket_message_raw_content` | — |
+| `search_articles` | — |
+| `search_tickets` | — |
+| `unassign_ticket` | — |
+| `update_article` | Full update |
+| `update_business_hours` | **Full update; empty/null deletes schedule** |
+| `update_business_hours_exception` | Full update |
+| `update_collection` | Full update |
+| `update_company` | Full update |
+| `update_customer` | Full update |
+| `update_portal_settings` | Full update |
 
 The five DELETE tools remain exposed. Use them only for the user's explicitly intended target and deletion, subject to the host's confirmation policy. The skills do not turn routine triage or upkeep into authorization for deletion.
 
