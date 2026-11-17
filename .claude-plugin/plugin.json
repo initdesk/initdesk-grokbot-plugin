@@ -16,5 +16,8 @@
     "helpdesk",
     "customer-support"
   ],
-  "privacyPolicyUrl": "https://www.initdesk.com/privacy-policy"
+  "privacyPolicyUrl": "https://www.initdesk.com/privacy-policy",
+  "supportUrl": "https://help.initdesk.com",
+  "documentationUrl": "https://help.initdesk.com/plugins/claude",
+  "termsOfServiceUrl": "https://www.initdesk.com/terms-of-service"
 }
