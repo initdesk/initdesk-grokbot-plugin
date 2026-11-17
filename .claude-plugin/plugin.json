@@ -1,0 +1,20 @@
+{
+  "name": "initdesk",
+  "displayName": "initdesk",
+  "version": "0.1.2",
+  "description": "Work with initdesk tickets, customers, companies, and help-center content through the initdesk MCP server.",
+  "author": {
+    "name": "initdesk",
+    "email": "support@initdesk.com",
+    "url": "https://www.initdesk.com"
+  },
+  "homepage": "https://help.initdesk.com/plugins/claude",
+  "repository": "https://github.com/initdesk/initdesk-plugin",
+  "license": "MIT",
+  "keywords": [
+    "initdesk",
+    "helpdesk",
+    "customer-support"
+  ],
+  "privacyPolicyUrl": "https://www.initdesk.com/privacy-policy"
+}

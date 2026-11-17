@@ -1,8 +1,20 @@
 # initdesk plugin
 
-Connect Cursor and Grok Build to initdesk tickets, customers, companies, and help-center content through the remote initdesk MCP server. Shared skills help select an organization, triage tickets and replies, find customers, and maintain help-center articles.
+Connect Claude, Cursor, and Grok Build to initdesk tickets, customers, companies, and help-center content through the remote initdesk MCP server. Shared skills help select an organization, triage tickets and replies, find customers, and maintain help-center articles.
 
 ## Install locally
+
+### Claude
+
+For Claude chat or Cowork, follow the [initdesk connection guide for Claude](https://help.initdesk.com/plugins/claude) to add the remote MCP connector and complete OAuth. The guide connects the server; it does not install the four bundled skills or imply a directory listing.
+
+For local Claude Code testing, clone this repository, review its contents, and run `claude plugin validate /absolute/path/to/initdesk-plugin`, then `claude --plugin-dir /absolute/path/to/initdesk-plugin`. Check the four `initdesk:` skills and the server in `/mcp`; complete OAuth if prompted.
+
+To test the bundle in Claude chat or Cowork before directory publication, upload a ZIP of this plugin folder through **Plugins → Add → Upload plugin**. Include `.claude-plugin/plugin.json`, `.mcp.json`, and `skills/` at the plugin root. Connect initdesk from the plugin's Connectors tab. Reuse an existing connection to the same server URL when offered.
+
+Local installation and custom-connector setup are available independently of directory approval. This repository does not claim an approved Anthropic directory listing.
+
+See [Claude plugin structure and testing](https://claude.com/docs/plugins/build).
 
 ### Cursor
 
@@ -39,9 +51,9 @@ Dynamic client registration is rate-limited. Repeated reconnects can exhaust reg
 1. Run `ping` and verify its successful response.
 2. Run `list_organizations`; select the intended organization's internal numeric ID.
 3. Run one organization-scoped read, such as `list_inboxes`, with that ID.
-4. Verify that the four shared skills load and that the client discovers only one initdesk MCP server despite the two manifest directories.
+4. For a plugin installation in Claude, Cursor, or Grok Build, verify that the four shared skills load and that the client discovers only one initdesk MCP server for that host. The package carries host-specific manifest directories; they describe the same server, not separate connections.
 
-Repeat this check separately in Cursor, Grok Bot, and Grok Build. A successful call from a different MCP host does not establish these clients' OAuth compatibility.
+Repeat the supported checks separately in Claude, Cursor, Grok Bot, and Grok Build. A Grok Bot custom connector provides tools; this package does not establish bundled-skill discovery there. A successful call from a different MCP host does not establish these clients' OAuth compatibility.
 
 ## Tools and write behavior
 
@@ -127,7 +139,9 @@ The five DELETE tools remain exposed. Use them only for the user's explicitly in
 ## Documentation and support
 
 - [initdesk documentation](https://docs.initdesk.com)
-- [initdesk MCP connection guide](https://help.initdesk.com/integrations-notifications/initdesk-mcp-server)
+- [initdesk MCP connection guide](https://help.initdesk.com/integrations/mcp)
+- [Use initdesk in Claude](https://help.initdesk.com/plugins/claude)
 - [Source](https://github.com/initdesk/initdesk-plugin)
+- [Privacy policy](https://www.initdesk.com/privacy-policy)
 - [MIT license](LICENSE)
 - Support: support@initdesk.com
