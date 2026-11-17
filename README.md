@@ -142,6 +142,7 @@ The five DELETE tools remain exposed. Use them only for the user's explicitly in
 - [initdesk MCP connection guide](https://help.initdesk.com/integrations/mcp)
 - [Use initdesk in Claude](https://help.initdesk.com/plugins/claude)
 - [Source](https://github.com/initdesk/initdesk-plugin)
+- [API status](https://status.initdesk.com/) — the MCP server depends on the initdesk API; this status page is not a complete MCP or OAuth health check.
 - [Privacy policy](https://www.initdesk.com/privacy-policy)
 - [MIT license](LICENSE)
 - Support: support@initdesk.com
