@@ -2,7 +2,7 @@
   "name": "initdesk",
   "displayName": "initdesk",
   "description": "Work with initdesk tickets, customers, companies, and help-center content through the initdesk MCP server.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": {
     "name": "initdesk",
     "email": "support@initdesk.com"
